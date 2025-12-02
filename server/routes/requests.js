@@ -91,4 +91,29 @@ router.post("/:id/reject", auth, async (req, res) => {
   }
 });
 
+// DELETE a message request (only creator can delete)
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const id = req.params.id;
+    const msg = await MessageRequest.findById(id);
+
+    if (!msg) {
+      return res.status(404).json({ error: 'MessageRequest not found' });
+    }
+
+    // Only the sender can delete the message
+    if (msg.from.toString() !== req.user.id) {
+      return res.status(403).json({ error: 'Not authorized to delete this message' });
+    }
+
+    await MessageRequest.findByIdAndDelete(id);
+
+    return res.json({ ok: true, id });
+  } catch (err) {
+    console.error('DELETE /api/message-requests/:id error:', err);
+    return res.status(500).json({ error: err.message || 'Server error' });
+  }
+});
+
+
 module.exports = router;
