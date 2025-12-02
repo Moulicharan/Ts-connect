@@ -10,11 +10,21 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true, lowercase: true, trim: true },
   passwordHash: { type: String, required: true },
   bio: { type: String, default: '' },
-  avatarUrl: { type: String, default: '' },
+
+  // UPDATED avatarUrl default
+  avatarUrl: {
+    type: String,
+    default: function () {
+      const encoded = encodeURIComponent(this.name || "User");
+      return `https://ui-avatars.com/api/?name=${encoded}&background=random&size=128&rounded=true`;
+    }
+  },
+
   followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   createdAt: { type: Date, default: Date.now }
 });
+
 
 // Static: check if email is allowed (college domain)
 UserSchema.statics.isCollegeEmail = function(email) {
