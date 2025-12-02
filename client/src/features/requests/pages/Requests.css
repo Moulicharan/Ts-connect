@@ -1,0 +1,50 @@
+.requests-page {
+  max-width: 900px;
+}
+
+.requests-section {
+  margin-bottom: 20px;
+}
+
+.request-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.request-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.request-card__details {
+  flex: 1;
+}
+
+.request-card__name {
+  font-weight: 600;
+}
+
+.request-card__email {
+  font-size: 13px;
+  color: #666;
+}
+
+.request-card__message {
+  margin-top: 6px;
+}
+
+.request-card__status {
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.request-card__actions {
+  display: flex;
+  gap: 8px;
+}
+

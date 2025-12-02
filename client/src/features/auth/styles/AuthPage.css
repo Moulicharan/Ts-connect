@@ -1,0 +1,19 @@
+.auth-page {
+  max-width: 600px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-form__field {
+  margin-bottom: 8px;
+}
+
+.auth-form__error {
+  color: red;
+  margin-top: 8px;
+}
+

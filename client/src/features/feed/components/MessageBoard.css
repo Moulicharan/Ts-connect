@@ -1,0 +1,63 @@
+.message-board {
+  padding: 20px;
+}
+
+.message-board__form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.message-board__input {
+  flex: 1;
+  padding: 8px;
+}
+
+.message-board__submit {
+  padding: 8px 12px;
+}
+
+.message-board__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-board__item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-board__text {
+  font-weight: 600;
+}
+
+.message-board__meta {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.message-board__actions {
+  margin-left: 12px;
+}
+
+.message-board__delete-button {
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.message-board__delete-button:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
